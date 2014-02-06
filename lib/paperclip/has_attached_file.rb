@@ -25,7 +25,7 @@ module Paperclip
     def define_flush_errors
       @klass.send(:validates_each, @name) do |record, attr, value|
         attachment = record.send(@name)
-        attachment.send(:flush_errors)
+        attachment.send(:flush_errors) if attachment
       end
     end
 
